@@ -51,14 +51,13 @@ standardTimer.Execute(go, ["https://requestb.in/y01su9y0"]).then((result)=>{
 
 var timerAsync = new StopWatch();
 
-function goAsync(url, cb) {
+function goAsync(url) {
   return new Promise((res, rej) => {
     var total = 0;
     for (var i = 0; i < 100000; i++) {
       total += i;
     }
     res({total : total});
-    cb();
   })  
 }
 
