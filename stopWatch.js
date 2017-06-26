@@ -50,7 +50,7 @@ StopWatch.prototype.Start = function(){
   this.start = now();
 }
 
-StopWatch.prototype.End = function() {
+StopWatch.prototype.Stop = function() {
   this.end = now();
   var time = this.end - this.start;
   this.times.push(time)

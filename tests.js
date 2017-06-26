@@ -14,14 +14,14 @@ var test = function (iters, idx) {
     array.push(Math.pow(i, 2) ^ 24);
     timerTick.Tick();
   }
-  timerTick.End();
+  timerTick.Stop();
 
 
   timer.Start();
   for (var i = 0; i < iters; i++) {
     array1.push(Math.pow(i, 2) ^ 24);
   }
-  timer.End();
+  timer.Stop();
 
   console.log("TEST", idx, ":", timer.getMeanTime().toFixed(4), timerTick.Stats().Sum.toFixed(4), (timer.getMeanTime() - timerTick.Stats().Sum).toFixed(4), "\n");
 }
