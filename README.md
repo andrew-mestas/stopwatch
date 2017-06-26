@@ -1,11 +1,16 @@
 # stopwatch
-An event timer can be used to time blocks of code and/or time function execution.
+An event timer can be used to time blocks of code and/or time function execution. Time is returned in milliseconds.
 
 ### Testing function block
 This is an example of two timers testing out the same for loop one uses the Tick function to time each interation (after large amount of iterations there is a level of inaccuracy). The second labeled timer is the recommended approach.
 
 ```javascript
-  StopWatch - Start(), End(), Tick()
+  StopWatch
+    Start() - Start timer
+    Stop() - Stop timer
+    Tick() - similar to lap on stopwatch
+    Stats() - returns mean, standard deviation (over n), and mean time
+    getMeanTime() - returns mean time
 ```
 
 ```javascript
@@ -25,14 +30,14 @@ var test = function(iters, idx){
       array.push(Math.pow(i,2) ^ 24);
       timerTick.Tick();
     }
-  timerTick.End();
+  timerTick.Stop();
 
 
   timer.Start();
     for (var i = 0; i < iters; i++) {
       array1.push(Math.pow(i,2) ^ 24);
     }
-  timer.End();
+  timer.Stop();
 
   console.log("TEST", idx, ":", timer.getMeanTime().toFixed(4) , timerTick.Stats().Sum.toFixed(4), (timer.getMeanTime() - timerTick.Stats().Sum).toFixed(4), "\n");
 }
@@ -76,11 +81,12 @@ var timerAsync = new StopWatch();
 
 function goAsync(url) {
   return new Promise((res, rej) => {
-    var total = 0;
-    for (var i = 0; i < 100000; i++) {
-      total += i;
-    }
-    res({total : total});
+    request(url, function (error, response, body) {
+      if (error) console.log('error:', error);
+      if (response && response.statusCode) {
+        res({ total: response.statusCode });
+      }
+    })
   })  
 }
 
