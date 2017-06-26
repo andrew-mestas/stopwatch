@@ -1,0 +1,30 @@
+{
+  "name": "stopwatch",
+  "version": "1.0.0",
+  "description": "JavaScript timing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrew-mestas/stopwatch.git"
+  },
+  "keywords": [
+    "timing",
+    "performance",
+    "stopwatch",
+    "speed"
+  ],
+  "author": "Andrew Mestas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrew-mestas/stopwatch/issues"
+  },
+  "homepage": "https://github.com/andrew-mestas/stopwatch#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "performance-now": "^2.1.0",
+    "request": "^2.81.0"
+  }
+}
